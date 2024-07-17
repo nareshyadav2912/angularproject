@@ -1,0 +1,16 @@
+<div class="filter-container">
+    <span>Filter: </span>
+    <input type="radio" name="filter" value="All" [(ngModel)]="selectedValue" (change)="onSelected()"/>
+    <span>{{'All('+all+')'}}</span>
+    <!-- <span>{{"All"+"("+all+")"}}</span> -->
+
+    <input type="radio" name="filter" value="Telugu" [(ngModel)]="selectedValue" (change)="onSelected()"/>
+    <span>{{'Telugu('+telugu+')'}}</span>
+
+    <input type="radio" name="filter" value="English" [(ngModel)]="selectedValue" (change)="onSelected()"/>
+    <span>{{'English('+english+')'}}</span>
+
+    <input type="radio" name="filter" value="Hindi" [(ngModel)]="selectedValue" (change)="onSelected()"/>
+    <span>{{'Hindi('+hindi+')'}}</span>
+
+</div>

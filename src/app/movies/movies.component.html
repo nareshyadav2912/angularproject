@@ -1,0 +1,31 @@
+<div class="filter">
+    <app-filter
+    [all]="getTotal()"
+    [telugu]="getTelugu()"
+    [hindi]="getHindi()"
+    [english]="getEnglish()"
+    (changedValue)="onChanged($event)"
+   ></app-filter>
+</div>
+<div class="search" >
+    <app-search (searchChanged)="onEntered($event)"></app-search>
+</div>
+<ng-container *ngFor="let m of movies"  >
+    <div class="movie-container"  *ngIf="searchText==='' || m.name.toLowerCase().includes(searchText)">
+        <div class="movie-card" *ngIf="movieCount==='All' || movieCount===m.language">
+            <div>
+                <img [src]="m.image" style="width: 220px;height: 140px;">
+            </div>
+            <div class="movie-name"><h2>{{m.name}}</h2></div>
+            <div class="movie-hero"><h3>{{m.hero}}</h3></div>
+            <div class="details">
+                <div class="movie-type" [ngStyle]="{color:m.language==='Hindi'? 'Green' : 'Red'}">{{m.language}}</div>
+                <div class="movie-duration"><b>Duration: </b>{{m.duration}}</div>
+            </div>
+            <div class="movie-buttons">
+                <button class="btn btn-buy">Watch Now</button>
+                <button class="btn btn-show">Show Details</button>
+            </div>
+        </div>
+    </div>
+</ng-container>
